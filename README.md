@@ -1,5 +1,11 @@
 ### Deploiement d'un cluster Redis
 
+#### Pre-requis: Avoir docker installer et cloner ce repo
+```shell
+git clone https://github.com/khadimmbaye0/CLUSTER-REDIS.git
+cd CLUSTER-REDIS
+```
+
 #### 1- demarrer le cluster
 ```shell
 docker compose -p "redis-cluster" up -d

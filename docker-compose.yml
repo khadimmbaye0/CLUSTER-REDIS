@@ -117,3 +117,20 @@ services:
     restart: always
     depends_on:
       - redis-master-1
+
+  redis-insight:
+    container_name: redis-insight
+    image: redis/redisinsight:latest
+    ports:
+      - "5540:5540"
+    restart: always
+    depends_on:
+      - redis-master-1
+      - redis-master-2
+      - redis-master-3
+      - redis-slave-1
+      - redis-slave-2
+      - redis-slave-3
+      - redis-slave-4
+      - redis-slave-5
+      - redis-slave-6
