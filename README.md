@@ -26,5 +26,7 @@ redis-cli -c -p 7001
 cluster info
 ```
 
+#### NB: Vous pouvez visualiser le tout en allant a l'url: http://localhost:8080
+
 #### 5- Schema de l'architecture du cluster
 ![alt text](assets/architecture.png)
