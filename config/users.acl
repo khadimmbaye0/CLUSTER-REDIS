@@ -1,0 +1,5 @@
+user default on >Default@Stat2026 ~* &* -@all +@read +INFO +PING +CLUSTER|INFO +CLUSTER|NODES +CLUSTER|SLOTS +CLIENT|LIST +SLOWLOG +CONFIG|GET +MEMORY +COMMAND
+user admin on >Admin@Cluster2026 ~* &* +@all
+user appuser on >App@Pass2026 ~app:* &* +@read +@write +DEL +EXPIRE +TTL -FLUSHDB -FLUSHALL -CONFIG
+user readonly on >Read@Only2026 ~* &* +@read +INFO +PING +CLUSTER|INFO +CLUSTER|NODES +CLUSTER|SLOTS -FLUSHDB -FLUSHALL -CONFIG
+user insight on >Insight@Pass2026 ~* &* +@all

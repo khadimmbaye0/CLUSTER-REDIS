@@ -5,6 +5,7 @@ services:
     command: ["sh", "/etc/initialize.sh"]
     volumes:
       - ./config/redis-master-1.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
       - ./script/redis-master-1.sh:/etc/initialize.sh
     restart: always
     depends_on:
@@ -26,6 +27,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-master-2.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7002:7002"
@@ -37,6 +39,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-master-3.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7003:7003"
@@ -48,6 +51,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-slave-1.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7004:7004"
@@ -59,6 +63,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-slave-2.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7005:7005"
@@ -70,6 +75,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-slave-3.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7006:7006"
@@ -81,6 +87,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-slave-4.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7007:7007"
@@ -92,6 +99,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-slave-5.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7008:7008"
@@ -103,6 +111,7 @@ services:
     command: redis-server /etc/redis.conf
     volumes:
       - ./config/redis-slave-6.conf:/etc/redis.conf
+      - ./config/users.acl:/etc/redis/users.acl
     restart: always
     ports:
       - "7009:7009"
@@ -113,7 +122,7 @@ services:
     image: insready/redis-stat
     ports:
       - "8080:63790"
-    command: --server host.docker.internal:7001 host.docker.internal:7002 host.docker.internal:7003 host.docker.internal:7004 host.docker.internal:7005 host.docker.internal:7006 host.docker.internal:7007 host.docker.internal:7008 host.docker.internal:7009
+    command: -a Default@Stat2026 --server host.docker.internal:7001 host.docker.internal:7002 host.docker.internal:7003 host.docker.internal:7004 host.docker.internal:7005 host.docker.internal:7006 host.docker.internal:7007 host.docker.internal:7008 host.docker.internal:7009
     restart: always
     depends_on:
       - redis-master-1
